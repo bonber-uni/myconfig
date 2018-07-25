@@ -244,4 +244,37 @@ if kaoriya#switch#enabled('disable-go-extra')
   let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]golang$"'), ',')
 endif
 
+
+"" for Dein ---------- ---------- Start
+if &compatible
+  set nocompatible
+endif
+
+"dein.vimディレクトリをruntimepathに追加する
+set runtimepath+=~/vimfiles/dein/repos/github.com/Shougo/dein.vim
+
+"以下定型文
+if dein#load_state("~/vimfiles/dein")
+  call dein#begin("~/vimfiles/dein")
+    call dein#add("~/vimfiles/dein/repos/github.com/Shougo/dein.vim")
+
+      "好きなプラグインを dein#add() 追加していく
+      "call dein#add('好きなプラグイン')
+      call dein#add('vim-airline/vim-airline')
+      call dein#add('scrooloose/nerdtree')
+    call dein#end()
+  call dein#save_state()
+
+endif
+
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
+"" for Dein ---------- ---------- End
+
+
+
 " Copyright (C) 2009-2018 KaoriYa/MURAOKA Taro
