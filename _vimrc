@@ -276,5 +276,8 @@ endif
 "" for Dein ---------- ---------- End
 
 
+"" for NERDtree Autocmd ---------- ---------- Start
+autocmd VimEnter * execute 'NERDTree'
+"" for NERDtree Autocmd ---------- ---------- End
 
 " Copyright (C) 2009-2018 KaoriYa/MURAOKA Taro
