@@ -152,7 +152,7 @@ set formatoptions+=mM
 " GUI固有ではない画面表示の設定:
 "
 " 行番号を非表示 (number:表示)
-set nonumber
+set number
 " ルーラーを表示 (noruler:非表示)
 set ruler
 " タブや改行を非表示 (list:表示)
@@ -170,7 +170,9 @@ set showcmd
 " タイトルを表示
 set title
 " 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
-"colorscheme evening " (Windows用gvim使用時はgvimrcを編集すること)
+colorscheme evening " (Windows用gvim使用時はgvimrcを編集すること)
+" カーソル行をハイライト
+set cursorline
 
 "---------------------------------------------------------------------------
 " ファイル操作に関する設定:
@@ -261,7 +263,8 @@ if dein#load_state("~/vimfiles/dein")
       "好きなプラグインを dein#add() 追加していく
       "call dein#add('好きなプラグイン')
       call dein#add('vim-airline/vim-airline')
-      call dein#add('scrooloose/nerdtree')
+      call dein#add('scrooloose/nerdtree')     " ファイルエクスプローラ表示
+      call dein#add('Yggdroot/indentLine')     " indet の表示
     call dein#end()
   call dein#save_state()
 
@@ -279,5 +282,13 @@ endif
 "" for NERDtree Autocmd ---------- ---------- Start
 autocmd VimEnter * execute 'NERDTree'
 "" for NERDtree Autocmd ---------- ---------- End
+
+"" for Indetline ---------- ---------- Start
+ let g:indentLine_faster = 1
+ nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+ let g:indentLine_color_term = 111
+ let g:indentLine_color_gui = '#708090'
+ let g:indentLine_char = '¦' "use ¦, ┆ or │
+"" for Indentline ---------- ---------- End
 
 " Copyright (C) 2009-2018 KaoriYa/MURAOKA Taro
